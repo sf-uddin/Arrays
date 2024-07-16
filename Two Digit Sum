@@ -39,3 +39,29 @@ int[] TwoNumberSum(int[] array, int targetSum)
 
     return new int[0];
 }
+
+------------------------------------------------------------
+
+//Time complexity - O(n) , Space complexity - O(1)
+int[] TwoNumberSum(int[] array, int targetSum)
+{
+    Array.Sort(array);
+    int leftIdx = 0;
+    int rightIdx = array.Length - 1;
+    while (leftIdx < rightIdx)
+    {
+        int currentsum = array[leftIdx] + array[rightIdx];
+
+        if (currentsum == targetSum)
+            return new int[] { array[leftIdx], array[rightIdx] };
+        else if (currentsum < targetSum)
+            leftIdx++;
+        else if (currentsum > targetSum)
+            rightIdx--;
+    }
+    return new int[0];
+}
+
+
+
+
