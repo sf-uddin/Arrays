@@ -1,3 +1,4 @@
+
 //Time complexity - O(n^2) , Space complexity - O(1)
  int[] TwoNumberSum(int[] array, int targetsum)
 {
@@ -14,5 +15,27 @@
             }
         }   
     }
+    return new int[0];
+}
+
+---------------------------------------------------------
+
+//Time complexity - O(n) , Space complexity - O(n)
+int[] TwoNumberSum(int[] array, int targetSum)
+{
+    HashSet<int> set = new HashSet<int>();
+    foreach (int num in array)
+    {
+        int pmatch = targetSum - num;
+        if (set.Contains(pmatch))
+        {
+            return new int[] { pmatch, num };
+        }
+        else
+        {
+            set.Add(num);
+        }
+    }
+
     return new int[0];
 }
