@@ -1,7 +1,6 @@
-//
-
+//Time complexity - O(nlogn) , Space complexity - O(n)
 public int[] SortedSquaredArray(int[] array) 
-    {
+{
         int[] SquaredArray = new int[array.Length] ;
         for(int i=0; i<array.Length; i++)
         {
@@ -9,5 +8,5 @@ public int[] SortedSquaredArray(int[] array)
             SquaredArray[i]= value*value;
         }
         Array.Sort(SquaredArray);
-	    return  SquaredArray;
-	}
+	return  SquaredArray;
+}
