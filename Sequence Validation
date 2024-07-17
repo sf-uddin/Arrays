@@ -1,0 +1,16 @@
+//
+
+bool IsValidSubsequence(List<int> array, List<int> sequence) 
+    {
+		int aidx=0;
+        int sidx=0;
+        while(aidx<array.Count && sidx<sequence.Count)
+        {
+            if(array[aidx]== sequence[sidx])
+            {
+                sidx++;
+            }
+            aidx++;
+        }
+        return sequence.Count==sidx ;
+	}
