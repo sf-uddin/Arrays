@@ -1,0 +1,14 @@
+//Time complexity - O(Row*Col) , Space complexity - O(Row*Col)
+
+int[,] transposeMatrix(int[,] matrix) 
+{
+    int[,] transposed = new int[matrix.GetLength(1),matrix.GetLength(0)];
+    for(int i=0; i<matrix.GetLength(1); i++)// column iteration
+    {
+        for(int j=0; j<matrix.GetLength(0); j++)//row iteration
+        {
+            transposed[i,j]= matrix[j,i];
+        }
+    }
+    return transposed;
+}
