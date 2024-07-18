@@ -1,3 +1,5 @@
+
+//Transpose a Matrix means just transfer the row and column into column and row
 //Time complexity - O(Row*Col) , Space complexity - O(Row*Col)
 
 int[,] transposeMatrix(int[,] matrix) 
