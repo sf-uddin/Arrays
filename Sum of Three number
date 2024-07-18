@@ -1,0 +1,34 @@
+//Time complexity - O(n^2) , Space complexity - O(n)
+
+List<int[]> ThreeNumberSum(int[] array, int targetSum) 
+    {
+        Array.Sort(array);
+        List<int[]> triplets = new List<int[]>();
+        for(int i=0; i<array.Length-2; i++)
+        {          
+            int leftidx= i+1;
+            int rightidx= array.Length-1;
+            while(leftidx< rightidx)
+            {
+                int currentsum= array[i]+ array[leftidx] + array[rightidx];
+                
+                if(currentsum== targetSum)
+                {
+                    int[] newtriplet = { array[i], array[leftidx] , array[rightidx]};
+                    triplets.Add(newtriplet);
+                    leftidx++;
+                    rightidx--;
+                }
+                else if (currentsum < targetSum)
+                {
+                     leftidx++;
+                }
+
+                else if (currentsum > targetSum)
+                {
+                     rightidx--;
+                }
+            }   
+        }
+        return triplets;
+	 }
