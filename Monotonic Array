@@ -1,0 +1,20 @@
+
+//Time complexity - O(n) , Space complexity - O(1)
+
+bool IsMonotonic(int[] array) 
+{
+		var isnonincreasing= true;
+        var isnondecreasing= true;
+        for(int i=0; i<array.Length-1;i++)
+        {
+            if(array[i] < array[i+1])
+            {
+                isnonincreasing=false;
+            }
+            if((array[i] > array[i+1]))
+            {
+                isnondecreasing=false;
+            }
+        }
+		return isnonincreasing || isnondecreasing;
+	}
