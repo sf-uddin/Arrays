@@ -1,0 +1,26 @@
+//
+
+int[] MissingNumbers(int[] nums)
+    {
+		HashSet<int> includeNums = new HashSet<int>();
+        foreach(int num in nums)
+        {
+            includeNums.Add(num);
+        }
+        int[] result= new int[]{-1,-1};
+        for(int idx=1;idx<nums.Length+3;idx++)
+        {
+            if(!includeNums.Contains(idx))
+            {
+               if(result[0]==-1)
+               {
+                   result[0]=idx;
+               }
+                else
+               {
+                result[1]=idx;
+               }
+            }       
+        }  
+		return result;
+	}
