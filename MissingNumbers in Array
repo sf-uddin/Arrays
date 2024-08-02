@@ -1,8 +1,8 @@
-//
+//Time complexity - O(n) , Space complexity - O(n)
 
 int[] MissingNumbers(int[] nums)
-    {
-		HashSet<int> includeNums = new HashSet<int>();
+{
+	HashSet<int> includeNums = new HashSet<int>();
         foreach(int num in nums)
         {
             includeNums.Add(num);
@@ -23,4 +23,4 @@ int[] MissingNumbers(int[] nums)
             }       
         }  
 		return result;
-	}
+}
