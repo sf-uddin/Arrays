@@ -1,0 +1,44 @@
+// Time Complexity O(n)-----Space O(n) Complexity
+
+public static List<int> SpiralTraverse(int[,] array)
+    {
+        if(array.GetLength(0) ==0 ) return new List<int> ();
+        var result= new List<int> ();
+        int startrow=0;
+        int endrow=array.GetLength(0)-1;
+        int startcol=0;
+        int endcol=array.GetLength(1)-1;
+
+        while(startrow<=endrow && startcol<=endcol)
+        {
+            for(int col=startcol;col<=endcol;col++)
+            {
+                result.Add(array[startrow,col]);
+            }
+            
+            for(int row=startrow+1;row<=endrow;row++)
+            {
+                result.Add(array[row,endcol]);
+            }
+            
+           for(int col=endcol-1;col>=startcol;col--)
+            {
+               if(startrow==endrow) break;
+                result.Add(array[endrow,col]);
+            }
+            
+            for(int row=endrow-1;row>startrow;row--)
+            {
+               if(startcol==endcol) break;
+                result.Add(array[row,startcol]);
+            }
+
+         startrow++;
+         endrow--;
+         startcol++;
+         endcol--;
+            
+        }
+		
+		return result;
+	}
