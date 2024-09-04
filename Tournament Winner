@@ -1,0 +1,39 @@
+// Time complexity O(n) - Space Complexity O(k)--- k is the number of team
+
+public int HOME_TEAM_WON =1;
+    
+	public string TournamentWinner(List<List<string> > competitions, List<int> results) 
+    {
+	    string current_best_team="";
+        Dictionary<string , int > scores = new Dictionary<string , int >();
+        scores[current_best_team]=0;
+        for(int idx=0; idx<competitions.Count; idx++)
+        {
+            List<string> competion = competitions[idx];
+            int result = results[idx];
+
+            string home_team= competion[0];
+            string away_team= competion[1];
+
+            string winingteam= (result==HOME_TEAM_WON) ? home_team :away_team;
+            
+            updatescores (winingteam, 3, scores);
+
+                if(scores[winingteam] > scores[current_best_team])
+                {
+                    current_best_team=winingteam;
+                }            
+        }
+        
+		return current_best_team;
+	}
+
+    public void updatescores (string team, int points, Dictionary<string , int > scores)
+    {
+        if(!scores.ContainsKey(team))
+        {
+            scores[team]=0;
+        }
+        scores[team]= scores[team]+points;
+        
+    }
