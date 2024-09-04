@@ -1,0 +1,39 @@
+//Time complexity-O(n log (n) +  m log (m)-----Space Complexity O(1)
+
+public static int[] SmallestDifference(int[] arrayOne, int[] arrayTwo) 
+    {
+        Array.Sort(arrayOne);
+        Array.Sort(arrayTwo);
+        int idxone=0;
+        int idxtwo=0;
+        int smallest= Int32.MaxValue;
+        int current = Int32.MaxValue;
+        int[] smallestpair= new int[2];
+
+        while(idxone<arrayOne.Length && idxtwo<arrayTwo.Length)
+        {
+            int firstnumber= arrayOne[idxone];
+            int secondnumber= arrayTwo[idxtwo];
+            if(firstnumber<secondnumber)
+            {
+                current= secondnumber-firstnumber;
+                idxone++;
+            }
+           else if(firstnumber>secondnumber)
+            {
+                current= firstnumber-secondnumber;
+                idxtwo++;
+            }
+            else
+            {
+                return new int[]{firstnumber,secondnumber};
+            }
+
+            if(smallest>current)
+            {
+                smallest=current;
+                smallestpair =new int[]{firstnumber,secondnumber};
+            }  
+        }	
+		return smallestpair;
+	}
