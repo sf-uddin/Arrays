@@ -1,0 +1,23 @@
+// Time complexity O(n) ----Space complexity O(1)
+public static List<int> MoveElementToEnd(List<int> array, int toMove) 
+    {
+		int left=0;
+        int right= array.Count-1;
+        while(left < right)
+        {
+            while(left<right && array[right] == toMove) right--;
+            if(array[left]==toMove)
+                swap(left,right,array);
+            left++;
+            
+        }
+		return array;
+	}
+    
+public static void swap(int i, int j,List<int> array) 
+   {
+    int temp= array[i];
+    array[i]= array[j];
+    array[j]=temp;
+    
+   }
