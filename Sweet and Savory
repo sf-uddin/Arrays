@@ -1,0 +1,44 @@
+//Time complexity-O(n log n)-- Space Complexity O(n)--- n is the number of dishes
+
+public int[] SweetAndSavory(int[] dishes, int target) 
+    {
+		List<int> sweetDishes= new List<int> ();
+        List<int> savoryDishes= new List<int> ();
+        foreach(var dish in dishes)
+        {
+            if(dish<0)
+            {
+                sweetDishes.Add(dish);
+            }
+            else
+            {
+                savoryDishes.Add(dish);
+            }
+        }
+        savoryDishes.Sort();
+        sweetDishes.Sort((a,b) => Math.Abs(a)-Math.Abs(b));
+        
+        int[] bestpair =new int[2];
+        int bestDifference = Int32.MaxValue;
+        int sweetidx=0; int savoryidx=0;
+        while(sweetidx < sweetDishes.Count && savoryidx< savoryDishes.Count)
+        {
+            int currentsum= sweetDishes[sweetidx]+ savoryDishes[savoryidx];
+            if(currentsum<=target)
+            {
+                int currentdifference= target- currentsum;
+                if(currentdifference < bestDifference)
+                {
+                    bestDifference = currentdifference;
+                    bestpair[0] = sweetDishes[sweetidx];
+                    bestpair[1] = savoryDishes[savoryidx];
+                }
+                savoryidx++;
+            }
+            else
+            {
+                sweetidx++;
+            }
+        }
+		return bestpair;
+	}
