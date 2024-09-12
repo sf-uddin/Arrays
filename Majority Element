@@ -1,0 +1,19 @@
+// O(n) Time Complexity | O(1) Space complexity
+    public int MajorityElement(int[] array) {
+        int count = 0;
+        int answer = array[0];
+
+        foreach (var value in array) {
+            if (count == 0) {
+                answer = value;
+            }
+
+            if (value == answer) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+
+        return answer;
+    }
